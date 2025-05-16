@@ -6,14 +6,14 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF1E1E1E),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF6F4FB),
+        backgroundColor: Color(0xFF2D2D2D),
         elevation: 0,
         centerTitle: true,
         title: const Text(
           "Profile",
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black87),
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
       ),
       body: Padding(
@@ -33,7 +33,7 @@ class ProfilePage extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                color: Colors.white,
               ),
             ),
 
@@ -41,7 +41,7 @@ class ProfilePage extends StatelessWidget {
 
             const Text(
               'jhonrextabanas27@gmail.com',
-              style: TextStyle(fontSize: 16, color: Colors.black54),
+              style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
 
             const SizedBox(height: 30),
@@ -49,15 +49,16 @@ class ProfilePage extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: const Color(0xFFF6F4FB),
+                color: Color(0xFF2D2D2D),
                 borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: Colors.grey[800]!, width: 1),
               ),
               child: Column(
                 children: const [
                   InfoRow(label: "Cuteness", value: "100%"),
-                  Divider(height: 30),
-                  InfoRow(label: "Joined", value: "March 15, 2024"),
-                  Divider(height: 30),
+                  Divider(height: 30, color: Colors.grey),
+                  InfoRow(label: "Phone", value: "09948070403"),
+                  Divider(height: 30, color: Colors.grey),
                   InfoRow(label: "Location", value: "Roxas City, PH"),
                 ],
               ),
@@ -77,8 +78,8 @@ class ProfilePage extends StatelessWidget {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.deepPurple,
-                  backgroundColor: const Color(0xFFF6F4FB),
+                  foregroundColor: Colors.white,
+                  backgroundColor: Color(0xff9DCEFF),
                   elevation: 0,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
@@ -87,7 +88,7 @@ class ProfilePage extends StatelessWidget {
                 ),
                 child: const Text(
                   "Edit Profile",
-                  style: TextStyle(fontWeight: FontWeight.w600),
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                 ),
               ),
             ),
@@ -109,14 +110,8 @@ class InfoRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
-          label,
-          style: const TextStyle(fontSize: 16, color: Colors.black87),
-        ),
-        Text(
-          value,
-          style: const TextStyle(fontSize: 16, color: Colors.black54),
-        ),
+        Text(label, style: const TextStyle(fontSize: 16, color: Colors.white)),
+        Text(value, style: const TextStyle(fontSize: 16, color: Colors.grey)),
       ],
     );
   }
@@ -128,22 +123,52 @@ class EditProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Edit Profile')),
+      backgroundColor: Color(0xFF1E1E1E),
+      appBar: AppBar(
+        title: const Text(
+          'Edit Profile',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Color(0xFF2D2D2D),
+        elevation: 0,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             TextField(
-              decoration: const InputDecoration(
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
                 labelText: 'Name',
-                border: OutlineInputBorder(),
+                labelStyle: TextStyle(color: Colors.grey[400]),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Colors.grey[700]!),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Color(0xff9DCEFF)),
+                ),
+                filled: true,
+                fillColor: Color(0xFF2D2D2D),
               ),
             ),
             const SizedBox(height: 20),
             TextField(
-              decoration: const InputDecoration(
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
                 labelText: 'Email',
-                border: OutlineInputBorder(),
+                labelStyle: TextStyle(color: Colors.grey[400]),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Colors.grey[700]!),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(color: Color(0xff9DCEFF)),
+                ),
+                filled: true,
+                fillColor: Color(0xFF2D2D2D),
               ),
             ),
             const SizedBox(height: 20),
@@ -151,7 +176,18 @@ class EditProfilePage extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('Save Changes'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xff9DCEFF),
+                foregroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              child: const Text(
+                'Save Changes',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),

@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
     _getInitialInfo();
     return Scaffold(
       appBar: appBar(),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF1E1E1E),
       body: ListView(
         children: [
           _searchField(),
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   'Popular',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                               popularDiets[index].name,
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontSize: 16,
                               ),
                             ),
@@ -131,14 +131,14 @@ class _HomePageState extends State<HomePage> {
                     decoration: BoxDecoration(
                       color:
                           popularDiets[index].boxIsSelected
-                              ? Colors.white
+                              ? Color(0xFF2D2D2D)
                               : Colors.transparent,
                       borderRadius: BorderRadius.circular(16),
                       boxShadow:
                           popularDiets[index].boxIsSelected
                               ? [
                                 BoxShadow(
-                                  color: Color(0xff1D1617).withOpacity(0.07),
+                                  color: Colors.black.withOpacity(0.2),
                                   offset: Offset(0, 10),
                                   blurRadius: 40,
                                   spreadRadius: 0,
@@ -159,7 +159,8 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: const Color(0xff9DCEFF),
+        backgroundColor: Color(0xFF2D2D2D),
+        selectedItemColor: Color(0xff9DCEFF),
         unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(
@@ -185,7 +186,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'Recommendation\nfor Diet',
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
@@ -212,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                           diets[index].name,
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 16,
                           ),
                         ),
@@ -283,7 +284,7 @@ class _HomePageState extends State<HomePage> {
           child: Text(
             'Category',
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
@@ -323,7 +324,7 @@ class _HomePageState extends State<HomePage> {
                       categories[index].name,
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 14,
                       ),
                     ),
@@ -343,22 +344,26 @@ class _HomePageState extends State<HomePage> {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Color(0xff1D1617).withOpacity(0.11),
+            color: Colors.black.withOpacity(0.2),
             blurRadius: 40,
             spreadRadius: 0.0,
           ),
         ],
       ),
       child: TextField(
+        style: TextStyle(color: Colors.white),
         decoration: InputDecoration(
           filled: true,
-          fillColor: Colors.white,
+          fillColor: Color(0xFF2D2D2D),
           contentPadding: EdgeInsets.all(15),
           hintText: 'Search Pancake',
-          hintStyle: TextStyle(color: Color(0xffDDDADA), fontSize: 14),
+          hintStyle: TextStyle(color: Colors.grey[600], fontSize: 14),
           prefixIcon: Padding(
             padding: const EdgeInsets.all(12),
-            child: SvgPicture.asset('assets/icons/Search.svg'),
+            child: SvgPicture.asset(
+              'assets/icons/Search.svg',
+              color: Colors.grey,
+            ),
           ),
           suffixIcon: Container(
             width: 100,
@@ -367,14 +372,17 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   VerticalDivider(
-                    color: Colors.black,
+                    color: Colors.grey[600],
                     indent: 10,
                     endIndent: 10,
                     thickness: 0.1,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: SvgPicture.asset('assets/icons/Filter.svg'),
+                    child: SvgPicture.asset(
+                      'assets/icons/Filter.svg',
+                      color: Colors.grey,
+                    ),
                   ),
                 ],
               ),
@@ -394,12 +402,12 @@ class _HomePageState extends State<HomePage> {
       title: Text(
         'Breakfast',
         style: TextStyle(
-          color: Colors.black,
+          color: Colors.white,
           fontSize: 18,
           fontWeight: FontWeight.bold,
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF1E1E1E),
       elevation: 0.0,
       centerTitle: true,
       leading: GestureDetector(
@@ -411,9 +419,10 @@ class _HomePageState extends State<HomePage> {
             'assets/icons/Arrow - Left 2.svg',
             height: 20,
             width: 20,
+            color: Colors.white,
           ),
           decoration: BoxDecoration(
-            color: Color(0xffF7F8F8),
+            color: Color(0xFF2D2D2D),
             borderRadius: BorderRadius.circular(10),
           ),
         ),
@@ -429,9 +438,10 @@ class _HomePageState extends State<HomePage> {
               'assets/icons/dots.svg',
               height: 5,
               width: 5,
+              color: Colors.white,
             ),
             decoration: BoxDecoration(
-              color: Color(0xffF7F8F8),
+              color: Color(0xFF2D2D2D),
               borderRadius: BorderRadius.circular(10),
             ),
           ),
